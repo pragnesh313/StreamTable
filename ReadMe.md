@@ -58,7 +58,7 @@ datatablejs Integration: Built on top of datatables.js which allow sorting, filt
 - SQL Server LocalDB
 
 ## 2. Database Setup
-    The project is configured to automatically create the database and seed it from the SampleCustomers.sql file on the first run.
+> The project is configured to automatically create the database and seed it from the SampleCustomers.sql file on the first run.
 - Verify Installation
     Ensure LocalDB is installed on your machine. Open PowerShell or CMD and type:
 ```bash
