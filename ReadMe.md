@@ -4,19 +4,17 @@
 [![Reactive](https://img.shields.io/badge/RxJS-7.8-D81B60?style=flat-square&logo=reactivex)](https://rxjs.dev/)
 [![Database](https://img.shields.io/badge/LocalDB-MSSQL-blue?style=flat-square&logo=microsoft-sql-server)](https://www.microsoft.com/en-us/sql-server/)
 
----
+# StreamTable
+> StreamTable is a high-performance data grid solution for ASP.NET Core that solves the "Large Dataset" problem. Instead of waiting for a 100MB JSON payload to download and parse, StreamTable uses HTTP Response Streaming and RxJS to render data in the browser the millisecond it leaves the SQL Server.
 
 # 💡 Why StreamTable?
-Standard AJAX tables wait for the *entire* dataset before displaying anything. **StreamTable** uses **Chunked Transfer Encoding** to start showing data the millisecond the first byte hits the browser.
+Stop waiting for massive JSON payloads. **StreamTable** uses Chunked Transfer to stream rows into the UI instantly as soon as sql starts returning rows, bypassing the 'all-or-nothing' limitation of traditional AJAX. By removing ORDER BY and OFFSET/FETCH (paging) from your SQL query and web server, you are essentially "taking the handcuffs off" the database engine and achive same thing with **DataTable.js**
 
 | Feature | Description |
 | :--- | :--- |
 | **RxJS Throttle** | Prevents UI freezing by batching updates every 100ms. |
 | **Memory Efficient** | Processes data in chunks rather than loading a massive JSON array. |
 | **Automated Seeding** | Includes a SQL script to populate LocalDB instantly. |
-
-# StreamTable
-> StreamTable is a high-performance data grid solution for ASP.NET Core that solves the "Large Dataset" problem. Instead of waiting for a 100MB JSON payload to download and parse, StreamTable uses HTTP Response Streaming and RxJS to render data in the browser the millisecond it leaves the SQL Server.
 
 # 🎯 Overview
 > Traditional data grids often struggle with large datasets due to the need to load and parse the entire dataset before rendering. StreamTable addresses this by leveraging ASP.NET Core's ability to stream data directly from the database to the client, allowing for near-instantaneous rendering of rows as they arrive.
