@@ -24,6 +24,8 @@ const initCustomerTable = (selector) => {
 
     // Subscribing to the separated logic
     streamService.getStream('/api/customer')
+    // For sql query
+    streamService.getStream('/api/customer/sql')
         .pipe(
             // Accumulate rows as they arrive
             scan((acc, newRows) => [...acc, ...newRows], []),
