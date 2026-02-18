@@ -36,7 +36,7 @@ namespace StreamTable.Controllers
             using var connection = new SqlConnection(connectionString);
             await connection.OpenAsync();
             await using var command = new SqlCommand(sql, connection);
-            await using var reader = await command.ExecuteReaderAsync(CommandBehavior.SequentialAccess | CommandBehavior.SingleResult | CommandBehavior.CloseConnection);
+            await using var reader = await command.ExecuteReaderAsync(CommandBehavior.CloseConnection);
             while (await reader.ReadAsync())
             {
                 var customer = new Customer

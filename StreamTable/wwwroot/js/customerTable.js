@@ -19,17 +19,15 @@ const initCustomerTable = (selector) => {
             },
         ],
         order: [[5, 'desc']],
-        deferRender: true // Performance boost for large datasets
+        deferRender: true 
     });
 
-    // Subscribing to the separated logic
-    streamService.getStream('/api/customer')
-    // For sql query
+    // With sql statement
+    //streamService.getStream('/api/customer')
+    // With sql query
     streamService.getStream('/api/customer/sql')
         .pipe(
-            // Accumulate rows as they arrive
             scan((acc, newRows) => [...acc, ...newRows], []),
-            // Update UI every 100ms instead of every single chunk to save CPU
             throttleTime(100, rxjs.asyncScheduler, { leading: true, trailing: true })
         )
         .subscribe({
@@ -42,5 +40,4 @@ const initCustomerTable = (selector) => {
         });
 };
 
-// Start the table
 $(document).ready(() => initCustomerTable("#customerTable"));
